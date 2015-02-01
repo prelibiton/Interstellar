@@ -16,7 +16,7 @@ class Player
   end
 
   def move(incx)
-    @x += incx
+    @x += incx if @x + incx > 0 and @x + incx < 1240
   end
 
   def draw
