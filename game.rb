@@ -18,6 +18,7 @@ class GameWindow < Gosu::Window
 
 
     @planet = Gosu::Image.new(self,"images/p3shaded.png", true)
+    @font = Gosu::Font.new(self, Gosu::default_font_name, 20)
 
   end
 
@@ -31,6 +32,8 @@ class GameWindow < Gosu::Window
     @background_image.draw(0, 0, 0)
     @planet.draw_rot(150,100,1,1)
     @player.draw
+    @font.draw("Score: #{@player.score}", 10, 10, 1, 1.0, 1.0, 0xffffff00)
+    @font.draw("Level: ", 10, 30, 1, 1.0, 1.0, 0xffffff00)
   end
 
   def button_down(id)

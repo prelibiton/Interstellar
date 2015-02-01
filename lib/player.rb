@@ -15,6 +15,10 @@ class Player
     @speed
   end
 
+  def score
+    @score
+  end
+
   def move(incx)
     @x += incx if @x + incx > 0 and @x + incx < 720
   end
