@@ -2,11 +2,11 @@
 
 "logo.png":
 {
-	"frame": {"x":2,"y":2,"w":620,"h":110},
+	"frame": {"x":2,"y":2,"w":624,"h":110},
 	"rotated": false,
 	"trimmed": false,
-	"spriteSourceSize": {"x":0,"y":0,"w":620,"h":110},
-	"sourceSize": {"w":620,"h":110},
+	"spriteSourceSize": {"x":0,"y":0,"w":624,"h":110},
+	"sourceSize": {"w":624,"h":110},
 	"pivot": {"x":0.5,"y":0.5}
 }},
 "meta": {
@@ -14,8 +14,8 @@
 	"version": "1.0",
 	"image": "logo.png",
 	"format": "RGBA8888",
-	"size": {"w":624,"h":114},
+	"size": {"w":628,"h":114},
 	"scale": "1",
-	"smartupdate": "$TexturePacker:SmartUpdate:2174346ea2ba801f8e41041f536f720f:a6feac7da661b41bf33debe9ba4ffae8:6364ef14a8fbfea741f45122167fa6a7$"
+	"smartupdate": "$TexturePacker:SmartUpdate:a5f9370142c341838536e471ffcbda0f:94b282245596528188ef75cc3c0aac32:6364ef14a8fbfea741f45122167fa6a7$"
 }
 }

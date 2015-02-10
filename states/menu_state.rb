@@ -7,7 +7,7 @@ class MenuState < GameState
       $window, "media/background.json", :precise)
     @logos = Gosu::TexturePacker.load_json(
       $window, "media/logo.json", :precise)
-    @background_image = @images.frame('space2.png')
+    @background_image = @images.frame('background.png')
     @logo = @logos.frame('logo.png')
     @play_text     = Gosu::Image.from_text(
       $window, "P = PLAY", Gosu.default_font_name, 30)
