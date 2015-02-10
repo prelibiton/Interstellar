@@ -31,7 +31,7 @@ class MenuState < GameState
 
   def draw
     @background_image.draw(1, 1, 1)
-    @logo.draw($window.width  - @logo.width, 
+    @logo.draw(($window.width - @logo.width) / 2, 
       $window.height / 3 - @logo.height / 4  , 10)
     @game_over_text.draw($window.width / 2  - @game_over_text.width / 2, 
       $window.height / 2  - @game_over_text.height - 100, 10)
