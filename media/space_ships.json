@@ -1,0 +1,39 @@
+{"frames": {
+
+"playerShip2_blue.png":
+{
+	"frame": {"x":2,"y":2,"w":112,"h":75},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":112,"h":75},
+	"sourceSize": {"w":112,"h":75},
+	"pivot": {"x":0.5,"y":0.5}
+},
+"playerShip2_green.png":
+{
+	"frame": {"x":2,"y":79,"w":112,"h":75},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":112,"h":75},
+	"sourceSize": {"w":112,"h":75},
+	"pivot": {"x":0.5,"y":0.5}
+},
+"playerShip2_orange.png":
+{
+	"frame": {"x":2,"y":156,"w":112,"h":75},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":112,"h":75},
+	"sourceSize": {"w":112,"h":75},
+	"pivot": {"x":0.5,"y":0.5}
+}},
+"meta": {
+	"app": "http://www.codeandweb.com/texturepacker",
+	"version": "1.0",
+	"image": "space_ships.png",
+	"format": "RGBA8888",
+	"size": {"w":116,"h":233},
+	"scale": "1",
+	"smartupdate": "$TexturePacker:SmartUpdate:8db1c6c56f91823e8c9d83bb074c6110:8c9d25a02662e1a99aa25f637c363b1d:f56c160c725aed95b75721dddfcb10d1$"
+}
+}

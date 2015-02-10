@@ -1,0 +1,48 @@
+{"frames": {
+
+"meteorBrown_big2.png":
+{
+	"frame": {"x":2,"y":2,"w":120,"h":98},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":120,"h":98},
+	"sourceSize": {"w":120,"h":98},
+	"pivot": {"x":0.5,"y":0.5}
+},
+"meteorBrown_big4.png":
+{
+	"frame": {"x":246,"y":2,"w":98,"h":96},
+	"rotated": true,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":98,"h":96},
+	"sourceSize": {"w":98,"h":96},
+	"pivot": {"x":0.5,"y":0.5}
+},
+"meteorGrey_big2.png":
+{
+	"frame": {"x":124,"y":2,"w":120,"h":98},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":120,"h":98},
+	"sourceSize": {"w":120,"h":98},
+	"pivot": {"x":0.5,"y":0.5}
+},
+"meteorGrey_big4.png":
+{
+	"frame": {"x":344,"y":2,"w":98,"h":96},
+	"rotated": true,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":98,"h":96},
+	"sourceSize": {"w":98,"h":96},
+	"pivot": {"x":0.5,"y":0.5}
+}},
+"meta": {
+	"app": "http://www.codeandweb.com/texturepacker",
+	"version": "1.0",
+	"image": "asteroids.png",
+	"format": "RGBA8888",
+	"size": {"w":442,"h":102},
+	"scale": "1",
+	"smartupdate": "$TexturePacker:SmartUpdate:ec6163288dbf6f4ca1839b2746d71bc7:8d11c58ad027da4a4e148cd77a885d46:3cb2167982f406a3d6627570b02f9be7$"
+}
+}
