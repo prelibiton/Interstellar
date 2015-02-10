@@ -41,7 +41,10 @@ class PlayState < GameState
     end
   end
 
-    if @ship.lives == 0 
+    if @ship.lives == 0
+      open('score_log.txt', 'a') do |file|
+        file << "SCORE:#{@ship.score} DATE:#{Time.now.strftime("%d/%m/%Y %H:%M")}\n"
+      end
       GameState.switch(MenuState.instance)
     end
 
