@@ -3,10 +3,9 @@ class Ship
   RANGE = 300
   SPAWN_COORDINATES = 1000
 
-  def initialize(map)
+  def initialize
     load_images
     @ship = [@ship_01, @ship_02, @ship_03].shuffle.first
-    @map = map
     @x, @y = SPAWN_COORDINATES, SPAWN_COORDINATES
     @degrees = 0     #angle
     @last_shot = 0
@@ -22,6 +21,7 @@ class Ship
     new_x += speed if $window.button_down?(Gosu::KbD)
     new_y -= speed if $window.button_down?(Gosu::KbW)
     new_y += speed if $window.button_down?(Gosu::KbS)
+    
     if new_x > 0 and new_x < 2500 and new_y > 0 and new_y < 2500
       @x, @y = new_x, new_y
     else

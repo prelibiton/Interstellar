@@ -4,13 +4,8 @@ class Map
   TILE_SIZE = 128
 
   def initialize
-      load_tiles
-    @map = generate_map
-   
-  end
-
-  def can_move_to?(x, y)
-    tile = tile_at(x, y)
+    load_tiles
+    @map = generate_map 
   end
 
   def draw(camera)
@@ -26,22 +21,13 @@ class Map
     end
   end
     
-
   private
-
-  def tile_at(x, y)
-    t_x = ((x / TILE_SIZE) % TILE_SIZE).floor
-    t_y = ((y / TILE_SIZE) % TILE_SIZE).floor
-    row = @map[t_x]
-    row[t_y] if row
-  end
 
   def load_tiles
     @space_tile1 = Gosu::Image.new(
       $window, "media/space_tile1.png", true)
     @space_tile2 = Gosu::Image.new(
       $window, "media/space_tile2.png", true)
-
   end
 
   def generate_map

@@ -6,6 +6,7 @@ require_relative '../lib/explosion'
 require_relative '../lib/asteroid'
 require_relative '../lib/level'
 require_relative '../lib/numerical'
+require_relative '../lib/icon'
 
 class PlayState < GameState
 
@@ -14,13 +15,16 @@ class PlayState < GameState
       $window, "media/ObservingTheStar.ogg")
     @music.play
     @map = Map.new
-    @ship = Ship.new(@map)
+    @ship = Ship.new
     @camera = Camera.new(@ship)
     @level_id = Level.new(@ship)
-    @numerical_lives = Numerical.new(@ship.lives, 100, 565)
-    @numeral_x = Numerical.new(-1, 80, 565)
     @numerical_level = Numerical.new(@level_id.level, 100, 535)
     @numeral_X = Numerical.new(-1, 80, 535)
+
+    @icon = Icon.new(25, 50)
+    @numeral_x = Numerical.new(-1, 70, 50)
+    @numerical_lives = Numerical.new(@ship.lives, 100, 50)
+
     @lasers = []
     @explosions = []
     @asteroids = []
@@ -48,9 +52,6 @@ class PlayState < GameState
       GameState.switch(MenuState.instance)
     end
 
-   @lives = Gosu::Image.from_text(
-      $window, "LIVE#{'S' if @ship.lives != 1}",
-       Gosu.default_font_name, 30)
 
    @level = Gosu::Image.from_text(
       $window, "LEVEL", Gosu.default_font_name, 30)
@@ -97,11 +98,12 @@ class PlayState < GameState
     
     @score.draw(1, 500, 1)
     @level.draw(1, 530, 1)
-    @lives.draw(1, 560, 1)
+
     @numerical_lives.draw
     @numeral_x.draw
     @numerical_level.draw
     @numeral_X.draw
+    @icon.draw
   end
 
   def button_down(id)
