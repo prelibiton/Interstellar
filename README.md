@@ -1,5 +1,9 @@
 # Rubystellar 
 ---
+
+![Screenshot](https://raw.githubusercontent.com/prelibiton/Rubystellar/master/media/screen.png)
+
+
 2d space game written in Ruby using [Gosu](http://www.libgosu.org/) and [this book](https://leanpub.com/developing-games-with-ruby/read#leanpub-auto-implementing-the-tank).
 Graphics thanks to [kenney](www.kenney.nl)
 
