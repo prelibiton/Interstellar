@@ -22,7 +22,7 @@ class Ship
     new_x += speed if $window.button_down?(Gosu::KbD)
     new_y -= speed if $window.button_down?(Gosu::KbW)
     new_y += speed if $window.button_down?(Gosu::KbS)
-    if @map.can_move_to?(new_x, new_y)
+    if new_x > 0 and new_x < 2500 and new_y > 0 and new_y < 2500
       @x, @y = new_x, new_y
     else
       @speed = 1.0
@@ -53,10 +53,6 @@ class Ship
     Gosu::distance(@x, @y, other.x, other.y) < @radius * @size + other.radius * other.size
   end
 
-  def moving?
-    any_button_down?(Gosu::KbA, Gosu::KbD, Gosu::KbW, Gosu::KbS)
-  end
-
   def speed
     @speed ||= 1.0
     if moving?
@@ -65,13 +61,6 @@ class Ship
       @speed = 1.0
     end
     @speed
-  end
-
-  def any_button_down?(*buttons)
-    buttons.each do |b|
-      return true if $window.button_down?(b)
-    end
-    false
   end
 
   def change_angle(previous_angle, up, down, right, left)
@@ -95,12 +84,25 @@ class Ship
     angle || previous_angle
   end
 
+  private
+
   def load_images
     @ships = Gosu::TexturePacker.load_json(
       $window, "media/space_ships.json", :precise)
     @ship_01 = @ships.frame('playerShip2_blue.png')
     @ship_02 = @ships.frame('playerShip2_green.png')
     @ship_03 = @ships.frame('playerShip2_orange.png')
+  end
+
+  def any_button_down?(*buttons)
+    buttons.each do |b|
+      return true if $window.button_down?(b)
+    end
+    false
+  end
+
+  def moving?
+    any_button_down?(Gosu::KbA, Gosu::KbD, Gosu::KbW, Gosu::KbS)
   end
 
 end
