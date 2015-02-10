@@ -4,8 +4,8 @@
 Graphics thanks to [kenney](www.kenney.nl)
 
 ##Controls:
-⋅⋅*WASD movement(W-forward,S-backward,A-left,D-right)
-⋅⋅*space key(shooting)
+⋅⋅⋅WASD movement(W-forward,S-backward,A-left,D-right)
+⋅⋅⋅*space key(shooting)
 
 Gems required: gosu,gosu_texture_packer, perlin_noise.To start the game write 'ruby main.rb' to the console.
 
