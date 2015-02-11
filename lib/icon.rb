@@ -8,7 +8,8 @@ class Icon
   end
 
   def draw
-    @icon.draw(@x, @y, 1)   
+    @icon.draw(@x, @y, 1)
+    @score_icon.draw($window.height + 50, 50, 1)
   end
 
   private
@@ -19,6 +20,8 @@ class Icon
     @icon_01 = @icons.frame('playerLife2_blue.png')
     @icon_02 = @icons.frame('playerLife2_green.png')
     @icon_03 = @icons.frame('playerLife2_orange.png')
+
+    @score_icon = @icons.frame('star_gold.png')
   end
 
   
