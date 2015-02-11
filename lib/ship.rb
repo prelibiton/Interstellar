@@ -10,12 +10,12 @@ class Ship
     @degrees = 0     #angle
     @last_shot = 0
     @score = 0
-    @lives = 3
+    @lives = 4
     @radius = 30
     @size = 1
   end
 
-  def update(camera)
+  def update
     new_x, new_y = @x, @y
     new_x -= speed if $window.button_down?(Gosu::KbA)
     new_x += speed if $window.button_down?(Gosu::KbD)
@@ -34,6 +34,15 @@ class Ship
 
   def draw
     @ship.draw_rot(@x, @y, 1, @degrees)
+
+    case @lives
+      when 3
+        @damage_01.draw_rot(@x, @y, 1, @degrees)
+      when 2
+        @damage_02.draw_rot(@x, @y, 1, @degrees)
+      when 1
+        @damage_03.draw_rot(@x, @y, 1, @degrees)
+    end
   end
 
   def shoot
@@ -92,6 +101,12 @@ class Ship
     @ship_01 = @ships.frame('playerShip2_blue.png')
     @ship_02 = @ships.frame('playerShip2_green.png')
     @ship_03 = @ships.frame('playerShip2_orange.png')
+
+    @damage = Gosu::TexturePacker.load_json(
+      $window, "media/damage.json", :precise)
+    @damage_01 = @damage.frame('playerShip2_damage1.png')
+    @damage_02 = @damage.frame('playerShip2_damage2.png')
+    @damage_03 = @damage.frame('playerShip2_damage3.png')
   end
 
   def any_button_down?(*buttons)

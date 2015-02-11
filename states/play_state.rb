@@ -57,7 +57,7 @@ class PlayState < GameState
    @level = Gosu::Image.from_text(
       $window, "Level", Gosu.default_font_name, 30)
 
-    @ship.update(@camera)
+    @ship.update
 
     @asteroids.each do |asteroid| 
       @lasers.each do |laser|
