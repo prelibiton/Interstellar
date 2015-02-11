@@ -5,7 +5,7 @@
 
 
 2d space game written in Ruby using [Gosu](http://www.libgosu.org/) and [this book](https://leanpub.com/developing-games-with-ruby/read#leanpub-auto-implementing-the-tank).
-Graphics thanks to [kenney](www.kenney.nl)
+Graphics thanks to [kenney](http://www.kenney.nl)
 
 ##Controls:
 ⋅⋅⋅WASD movement(W-forward,S-backward,A-left,D-right)
