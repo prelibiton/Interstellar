@@ -11,7 +11,7 @@ describe Laser do
       expect(@laser).to be_a Laser
     end
   
-    it "should raise and ArgumentError if no parameters are passed" do
+    it "should raise an ArgumentError if no parameters are passed" do
       expect { Laser.new }.to raise_error(ArgumentError)
     end
 
