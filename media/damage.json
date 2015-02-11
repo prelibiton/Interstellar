@@ -1,0 +1,39 @@
+{"frames": {
+
+"playerShip2_damage1.png":
+{
+	"frame": {"x":2,"y":158,"w":111,"h":76},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":111,"h":76},
+	"sourceSize": {"w":111,"h":76},
+	"pivot": {"x":0.5,"y":0.5}
+},
+"playerShip2_damage2.png":
+{
+	"frame": {"x":2,"y":2,"w":112,"h":76},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":112,"h":76},
+	"sourceSize": {"w":112,"h":76},
+	"pivot": {"x":0.5,"y":0.5}
+},
+"playerShip2_damage3.png":
+{
+	"frame": {"x":2,"y":80,"w":112,"h":76},
+	"rotated": false,
+	"trimmed": false,
+	"spriteSourceSize": {"x":0,"y":0,"w":112,"h":76},
+	"sourceSize": {"w":112,"h":76},
+	"pivot": {"x":0.5,"y":0.5}
+}},
+"meta": {
+	"app": "http://www.codeandweb.com/texturepacker",
+	"version": "1.0",
+	"image": "damage.png",
+	"format": "RGBA8888",
+	"size": {"w":116,"h":236},
+	"scale": "1",
+	"smartupdate": "$TexturePacker:SmartUpdate:c0545d64704475fba9efefefadfb3c9f:21b655ab261d141c16dfe1e8d1fa451c:6831659e224d4be101681abbc9d3e396$"
+}
+}

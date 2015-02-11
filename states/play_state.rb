@@ -9,6 +9,7 @@ require_relative '../lib/numerical'
 require_relative '../lib/icon'
 
 class PlayState < GameState
+  OFFSET = 100
 
   def initialize
     @music = Gosu::Song.new(
@@ -18,12 +19,12 @@ class PlayState < GameState
     @ship = Ship.new
     @camera = Camera.new(@ship)
     @level_id = Level.new(@ship)
-    @numerical_level = Numerical.new(@level_id.level, 100, 535)
-    @numeral_X = Numerical.new(-1, 80, 535)
+    @numerical_level = Numerical.new(@level_id.level, OFFSET, 5 * OFFSET + 60)
+    
 
-    @icon = Icon.new(25, 50)
-    @numeral_x = Numerical.new(-1, 70, 50)
-    @numerical_lives = Numerical.new(@ship.lives, 100, 50)
+    @icon = Icon.new(OFFSET / 4, OFFSET / 2)
+    @numeral_x = Numerical.new(-1, OFFSET / 2 + 20, OFFSET / 2)
+    @numerical_lives = Numerical.new(@ship.lives, OFFSET, OFFSET / 2)
 
     @lasers = []
     @explosions = []
@@ -54,7 +55,7 @@ class PlayState < GameState
 
 
    @level = Gosu::Image.from_text(
-      $window, "LEVEL", Gosu.default_font_name, 30)
+      $window, "Level", Gosu.default_font_name, 30)
 
     @ship.update(@camera)
 
@@ -70,7 +71,7 @@ class PlayState < GameState
     end
       
     @score = Gosu::Image.from_text(
-      $window, "SCORE:#{@ship.score} ", Gosu.default_font_name, 30)
+      $window, "#{@ship.score} ", Gosu.default_font_name, 30)
    
     @lasers.map(&:update) 
     @lasers.reject!(&:done?)
@@ -96,13 +97,12 @@ class PlayState < GameState
       @asteroids.map(&:draw)
     end
     
-    @score.draw(1, 500, 1)
-    @level.draw(1, 530, 1)
+    @score.draw($window.height + OFFSET, OFFSET / 2, 1)
+    @level.draw(OFFSET / 4, 5 * OFFSET + 55, 1)
 
     @numerical_lives.draw
     @numeral_x.draw
     @numerical_level.draw
-    @numeral_X.draw
     @icon.draw
   end
 
