@@ -6,6 +6,6 @@ describe Enemy do
     it "should raise an ArgumentError if no parameters are passed" do
       expect { Enemy.new }.to raise_error(ArgumentError)
     end
-
-    end
+  end
+  
 end

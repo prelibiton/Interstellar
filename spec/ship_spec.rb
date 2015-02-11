@@ -51,7 +51,5 @@ describe Ship do
     end
 
   end
-  
-  
-  
+ 
 end
