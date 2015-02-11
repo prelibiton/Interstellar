@@ -26,8 +26,6 @@ describe Asteroid do
     it "returns correct size" do
       expect(@asteroid.size).to eql 1
     end
-
-
   end
   
   
