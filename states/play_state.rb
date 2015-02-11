@@ -7,6 +7,7 @@ require_relative '../lib/asteroid'
 require_relative '../lib/level'
 require_relative '../lib/numerical'
 require_relative '../lib/icon'
+require_relative '../lib/enemy'
 
 class PlayState < GameState
   OFFSET = 100
@@ -29,18 +30,34 @@ class PlayState < GameState
     @lasers = []
     @explosions = []
     @asteroids = []
+    @enemies = []
   end
 
   def update
     if rand(@level_id.spawn_rate) < 10
       @asteroids.push( Asteroid.new )
     end
+
+    if rand(1000) < 10
+      @enemies.push( Enemy.new(@ship))
+    end
+    
     @asteroids.map(&:update)
     @asteroids.reject!(&:done?)
+    @enemies.map(&:update)
+    @enemies.reject!(&:done?)
 
    @asteroids.each do |asteroid| 
     if @ship.collision?(asteroid)
       @asteroids.delete_at(@asteroids.index(asteroid)) 
+      @explosions.push(Explosion.new(@ship.x,@ship.y))
+      @ship.lives -= 1 
+    end
+  end
+
+  @enemies.each do |enemy| 
+    if @ship.collision?(enemy)
+      @enemies.delete_at(@enemies.index(enemy)) 
       @explosions.push(Explosion.new(@ship.x,@ship.y))
       @ship.lives -= 1 
     end
@@ -66,6 +83,17 @@ class PlayState < GameState
           @asteroids.delete_at(@asteroids.index(asteroid)) 
           @lasers.delete_at(@lasers.index(laser))
           @ship.score += 1
+        end
+      end
+    end
+
+    @enemies.each do |enemy| 
+      @lasers.each do |laser|
+        if laser.collision?(enemy)
+          @explosions.push(Explosion.new(enemy.x,enemy.y))
+          @enemies.delete_at(@enemies.index(enemy)) 
+          @lasers.delete_at(@lasers.index(laser))
+          @ship.score += 5
         end
       end
     end
@@ -95,6 +123,7 @@ class PlayState < GameState
       @explosions.map(&:draw)
       @lasers.map(&:draw)
       @asteroids.map(&:draw)
+      @enemies.map(&:draw)
     end
     
     @score.draw($window.height + OFFSET, OFFSET / 2, 1)

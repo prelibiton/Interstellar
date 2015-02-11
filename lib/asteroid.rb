@@ -1,5 +1,5 @@
 class Asteroid
-  attr_accessor :x, :y , :radius , :size
+  attr_accessor :x, :y, :radius, :size
 
   MAX_SPEED_X = 4
   MAX_SPEED_Y = 8
@@ -30,7 +30,6 @@ class Asteroid
   def done?
     @x < 0 || @x > 2500 || @y < 0 || @y > 2500
   end
-
 
   private
 
