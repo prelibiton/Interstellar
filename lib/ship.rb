@@ -1,14 +1,13 @@
 class Ship
   attr_accessor :x, :y, :degrees, :lives, :radius, :size, :score
-  RANGE = 300
-  SPAWN_COORDINATES = 1000
+  RANGE = 300  #fire range
+  SPAWN_COORDINATE = 1000
 
   def initialize
     load_images
     @ship = [@ship_01, @ship_02, @ship_03].shuffle.first
-    @x, @y = SPAWN_COORDINATES, SPAWN_COORDINATES
+    @x, @y = SPAWN_COORDINATE, SPAWN_COORDINATE
     @degrees = 0     #angle
-    @last_shot = 0
     @score = 0
     @lives = 4
     @radius = 30
@@ -121,6 +120,3 @@ class Ship
   end
 
 end
-
-
-
