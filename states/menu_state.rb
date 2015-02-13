@@ -10,9 +10,9 @@ class MenuState < GameState
     @background_image = @images.frame('background.png')
     @logo = @logos.frame('logo.png')
     @play_text     = Gosu::Image.from_text(
-      $window, "P = PLAY", Gosu.default_font_name, 30)
+      $window, "Enter", Gosu.default_font_name, 30)
     @exit_text     = Gosu::Image.from_text(
-      $window, "Esc = EXIT", Gosu.default_font_name, 30)
+      $window, "Exit", Gosu.default_font_name, 30)
 
     @music = Gosu::Song.new($window, "media/ObservingTheStar.ogg")
     @music.play
@@ -44,7 +44,7 @@ class MenuState < GameState
   def button_down(id)
     $window.close if id == Gosu::KbEscape
     
-    if id == Gosu::KbP
+    if id == Gosu::KbReturn
       @music.stop
       @play_state = PlayState.new
       GameState.switch(@play_state)
