@@ -39,27 +39,28 @@ class PlayState < GameState
     end
 
     if rand(1000) < 10
-      @enemies.push( Enemy.new(@ship))
+      @enemies.push( Enemy.new(@ship) )
     end
-    
-    @asteroids.map(&:update)
-    @asteroids.reject!(&:done?)
-    @enemies.map(&:update)
-    @enemies.reject!(&:done?)
 
-   @asteroids.each do |asteroid| 
-    if @ship.collision?(asteroid)
-      @asteroids.delete_at(@asteroids.index(asteroid)) 
-      @explosions.push(Explosion.new(@ship.x,@ship.y))
-      @ship.lives -= 1 
+   @asteroids.each do |asteroid|
+    if asteroid.x > @ship.x - OFFSET and asteroid.x < @ship.x + OFFSET and
+      asteroid.y > @ship.y - OFFSET and asteroid.y < @ship.y + OFFSET
+      if @ship.collision?(asteroid)
+        @asteroids.delete_at(@asteroids.index(asteroid)) 
+        @explosions.push( Explosion.new(@ship.x, @ship.y) )
+        @ship.lives -= 1 
+      end
     end
   end
 
-  @enemies.each do |enemy| 
-    if @ship.collision?(enemy)
-      @enemies.delete_at(@enemies.index(enemy)) 
-      @explosions.push(Explosion.new(@ship.x,@ship.y))
-      @ship.lives -= 1 
+  @enemies.each do |enemy|
+    if enemy.x > @ship.x - OFFSET and enemy.x < @ship.x + OFFSET and
+      enemy.y > @ship.y - OFFSET and enemy.y < @ship.y + OFFSET
+      if @ship.collision?(enemy)
+        @enemies.delete_at(@enemies.index(enemy)) 
+        @explosions.push( Explosion.new(@ship.x, @ship.y) )
+        @ship.lives -= 1 
+      end
     end
   end
 
@@ -71,36 +72,45 @@ class PlayState < GameState
     end
 
 
-   @level = Gosu::Image.from_text(
+    @asteroids.each do |asteroid|
+      if asteroid.x > @ship.x - 300 and asteroid.x < @ship.x + 300 and
+      asteroid.y > @ship.y - 300 and asteroid.y < @ship.y + 300
+        @lasers.each do |laser|
+          if laser.collision?(asteroid)
+            @explosions.push( Explosion.new(asteroid.x, asteroid.y) )
+            @asteroids.delete_at(@asteroids.index(asteroid)) 
+            @lasers.delete_at(@lasers.index(laser))
+            @ship.score += 1
+          end
+        end
+      end
+    end
+
+    @enemies.each do |enemy|
+      if enemy.x > @ship.x - 300 and enemy.x < @ship.x + 300 and
+      enemy.y > @ship.y - 300 and enemy.y < @ship.y + 300
+        @lasers.each do |laser|
+          if laser.collision?(enemy)
+            @explosions.push( Explosion.new(enemy.x,enemy.y) )
+            @enemies.delete_at(@enemies.index(enemy)) 
+            @lasers.delete_at(@lasers.index(laser))
+            @ship.score += 5
+          end
+        end
+      end
+    end
+
+    @level = Gosu::Image.from_text(
       $window, "Level", Gosu.default_font_name, 30)
-
-    @ship.update
-
-    @asteroids.each do |asteroid| 
-      @lasers.each do |laser|
-        if laser.collision?(asteroid)
-          @explosions.push(Explosion.new(asteroid.x,asteroid.y))
-          @asteroids.delete_at(@asteroids.index(asteroid)) 
-          @lasers.delete_at(@lasers.index(laser))
-          @ship.score += 1
-        end
-      end
-    end
-
-    @enemies.each do |enemy| 
-      @lasers.each do |laser|
-        if laser.collision?(enemy)
-          @explosions.push(Explosion.new(enemy.x,enemy.y))
-          @enemies.delete_at(@enemies.index(enemy)) 
-          @lasers.delete_at(@lasers.index(laser))
-          @ship.score += 5
-        end
-      end
-    end
       
     @score = Gosu::Image.from_text(
       $window, "#{@ship.score} ", Gosu.default_font_name, 30)
-   
+    
+    @ship.update
+    @asteroids.map(&:update)
+    @asteroids.reject!(&:done?)
+    @enemies.map(&:update)
+    @enemies.reject!(&:done?)
     @lasers.map(&:update) 
     @lasers.reject!(&:done?)
     @explosions.map(&:update)
