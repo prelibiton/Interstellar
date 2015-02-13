@@ -24,7 +24,7 @@ class Ship
     if new_x > 0 and new_x < 2500 and new_y > 0 and new_y < 2500
       @x, @y = new_x, new_y
     else
-      @speed = 1.0                                         
+      @speed = 1.0
     end
 
     @degrees = change_angle(@degrees,
