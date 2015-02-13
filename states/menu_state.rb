@@ -1,6 +1,5 @@
 class MenuState < GameState
   include Singleton
-  attr_accessor :play_state
 
   def initialize
     @images = Gosu::TexturePacker.load_json(
@@ -46,8 +45,7 @@ class MenuState < GameState
     
     if id == Gosu::KbReturn
       @music.stop
-      @play_state = PlayState.new
-      GameState.switch(@play_state)
+      GameState.switch(PlayState.new)
     end
   end
 end

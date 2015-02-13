@@ -1,10 +1,10 @@
 class Level
   attr_accessor :level, :spawn_rate
   
-  FIRST_LEVEL_SPAWN  = 100
-  SECOND_LEVEL_SPAWN = 75
-  THIRD_LEVEL_SPAWN = 50
-  FOURTH_LEVEL_SPAWN = 25
+  FIRST_LEVEL_SPAWN  = 200
+  SECOND_LEVEL_SPAWN = 150
+  THIRD_LEVEL_SPAWN  = 100
+  FOURTH_LEVEL_SPAWN = 50
 
   def initialize(player)
     @level = 1

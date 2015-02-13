@@ -135,7 +135,7 @@ class PlayState < GameState
       @asteroids.map(&:draw)
       @enemies.map(&:draw)
     end
-    
+  
     @score.draw($window.height + OFFSET, OFFSET / 2, 1)
     @level.draw(OFFSET / 4, 5 * OFFSET + 55, 1)
 

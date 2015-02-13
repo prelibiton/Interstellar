@@ -1,9 +1,7 @@
 class Explosion
-  FRAME_DELAY = 10 # ms
 
   def animation
-    @@animation ||=
-    Gosu::Image.load_tiles(
+    @animation ||= Gosu::Image.load_tiles(
       $window, "media/explosion.png", 128, 128, false)
   end
 
@@ -13,7 +11,7 @@ class Explosion
   end
 
   def update
-    @current_frame += 1 if frame_expired?
+    @current_frame += 1
   end
 
   def draw
@@ -35,11 +33,4 @@ class Explosion
     animation[@current_frame % animation.size]
   end
 
-  def frame_expired?
-    now = Gosu.milliseconds
-    @last_frame ||= now
-    if (now - @last_frame) > FRAME_DELAY
-      @last_frame = now
-    end
-  end
 end
